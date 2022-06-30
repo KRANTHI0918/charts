@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-    - validate-charts
+    - latest-charts*
 
 jobs:
   pull-request:
