@@ -939,7 +939,6 @@ rules:
   resources:
   - secrets
   verbs:
-  - create
   - delete
   - escalate
   - get

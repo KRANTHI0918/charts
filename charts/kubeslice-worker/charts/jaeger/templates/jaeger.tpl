@@ -24,11 +24,11 @@ spec:
               containerPort: 6831
               protocol: UDP
       tolerations:
-        - key: kubeslice.io/node-type
+        - key: avesha/node-type
           operator: Equal
           value: gateway
           effect: NoSchedule
-        - key: kubeslice.io/node-type
+        - key: avesha/node-type
           operator: Equal
           value: gateway
           effect: NoExecute
