@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'latest-charts-*'
+      - 'validate-charts'
 #   workflow_run:
 #     workflows: ["Opensource Charts Validation"]
 #     types:
