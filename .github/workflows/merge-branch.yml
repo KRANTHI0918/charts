@@ -2,8 +2,7 @@ name: Merge latest-charts branch to master
 on:
   push:
     branches:
-#      - 'latest-charts-*'
-      - 'validate-charts'
+      - 'latest-charts-*'
 #   workflow_run:
 #     workflows: ["Opensource Charts Validation"]
 #     types:
