@@ -1,3 +1,12 @@
+name: Auto Merge latest-charts branch to master
+on:
+  push:
+    branches:
+      - 'validate-charts'
+  # workflow_run:
+  #   workflows: ["Opensource Charts Validation"]
+  #   types:
+  #     - completed
 jobs:
   createPullRequest:
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -17,7 +26,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: latest-charts-a5fe9e6
+          branch: latest-charts-91b3c9f
           delete-branch: true
           title: '[latest-charts] Update report'
           body: |
