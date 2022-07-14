@@ -1,15 +1,15 @@
-# on:
-#   push:
-#     branches:
-#     - latest-charts*
+on:
+  push:
+    branches:
+    - 'latest-charts-dc7d982'
 
-# jobs:
-#   pull-request:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v2
-#     - name: pull-request
-#       uses: repo-sync/pull-request@v2
-#       with:
-#         destination_branch: "master"
-#         github_token: ${{ secrets.TOKEN }}
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        destination_branch: "master"
+        github_token: ${{ secrets.TOKEN }}
