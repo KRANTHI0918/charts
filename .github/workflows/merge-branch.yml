@@ -1,7 +1,10 @@
 name: Merge latest-charts branch to master
 on:
+  push:
+    branches:
+      - 'validate-charts'
   workflow_run:
-    workflows: ["pull-request"]
+    workflows: ["Create Pull Request"]
     types:
       - completed
 jobs:
