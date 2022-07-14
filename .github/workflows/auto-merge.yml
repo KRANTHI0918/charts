@@ -26,7 +26,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: latest-charts-cb4cbf9
+          branch: latest-charts-c8b116a
           delete-branch: true
           title: '[latest-charts] Update report'
           body: |
