@@ -22,7 +22,7 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           branch: latest-charts
-          delete-branch: false
+          delete-branch: true
           base: master
           title: 'latest-charts'
           body: |
