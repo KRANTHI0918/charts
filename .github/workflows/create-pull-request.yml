@@ -1,15 +1,12 @@
 name: Create Pull Request
 on:
-  push:
-    branches:
-    - 'latest-charts'
   workflow_run:
     workflows: ["Opensource Charts Validation"]
     types:
       - completed
 jobs:
   createPullRequest:
-    if: ${{ github.event.workflow_run.conclusion == 'Failure' }}
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
