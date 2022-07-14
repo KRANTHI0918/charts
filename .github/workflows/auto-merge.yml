@@ -2,11 +2,11 @@ name: Auto Merge latest-charts branch to master
 on:
   push:
     branches:
-      - 'latest-charts-*'
-  workflow_run:
-    workflows: ["Opensource Charts Validation"]
-    types:
-      - completed
+      - 'validate-charts'
+  # workflow_run:
+  #   workflows: ["Opensource Charts Validation"]
+  #   types:
+  #     - completed
 jobs:
   createPullRequest:
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
