@@ -1,4 +1,4 @@
-name: Merge latest-charts branch to master
+name: Auto Merge latest-charts branch to master
 on:
   push:
     branches:
