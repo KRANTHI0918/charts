@@ -12,9 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Merge latest-charts -> master
-        uses: devmasx/merge-branch@master
+      - name: enable automerge
+        if: steps.open-pr.outputs.pr_number != ''
+        uses: peter-evans/enable-pull-request-automerge@v2
         with:
-          type: now
-          target_branch: master
-          github_token: ${{ github.token }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          pull-request-number: ${{ steps.open-pr.outputs.pr_number }}
+          merge-method: merge
