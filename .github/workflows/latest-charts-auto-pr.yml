@@ -28,3 +28,11 @@ jobs:
         pr_assignee: "KRANTHI0918"
         pr_draft: false
         github_token: ${{ secrets.TOKEN }}
+
+      - name: enable automerge
+        if: steps.open-pr.outputs.pr_number != ''
+        uses: peter-evans/enable-pull-request-automerge@v2
+        with:
+          token: ${{ secrets.TOKEN }}
+          pull-request-number: ${{ steps.open-pr.outputs.pr_number }}
+          merge-method: merge
