@@ -31,17 +31,21 @@ jobs:
           pr_assignee: "KRANTHI0918"
           pr_draft: false
           github_token: ${{ secrets.TOKEN }}
+          merge-method: merge
 
 
       # https://github.com/marketplace/actions/enable-pull-request-automerge
       - name: enable automerge
+        if: steps.cpr.outputs.pr_number != ''
         uses: peter-evans/enable-pull-request-automerge@v2
         with:
           token: ${{ secrets.TOKEN }}
+          pull-request-number: ${{ steps.cpr.outputs.pr_number }}
           merge-method: merge
 
-      # - name: Auto approve
-      #   uses: juliangruber/approve-pull-request-action@v1
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     number: ${{ steps.cpr.outputs.pull-request-number }}
+      - name: Auto approve
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: juliangruber/approve-pull-request-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.cpr.outputs.pull-request-number }}
