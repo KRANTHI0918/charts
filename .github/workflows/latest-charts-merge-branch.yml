@@ -1,8 +1,5 @@
 name: Merge latest-charts branch to master
 on:
-  push:
-    branches:
-      - 'latest-charts'
   workflow_run:
     workflows: ["Latest Charts Auto-PR"]
     types:
