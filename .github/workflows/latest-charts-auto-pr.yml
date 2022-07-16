@@ -3,10 +3,10 @@ on:
   push:
     branches: ['latest-charts']
 
-  workflow_run:
-    workflows: ["Opensource Charts Validation"]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: ["Opensource Charts Validation"]
+  #   types:
+  #     - completed
 
 jobs:
   pull-request:
