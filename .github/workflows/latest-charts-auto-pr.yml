@@ -34,9 +34,9 @@ jobs:
 
     # https://github.com/marketplace/actions/enable-pull-request-automerge
       - name: enable automerge
-        if: steps.cpr.outputs.pull-request-operation == 'created'
+        if: steps.cpr.outputs.pr_number != ''
         uses: peter-evans/enable-pull-request-automerge@v2
         with:
           token: ${{ secrets.TOKEN }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          pull-request-number: ${{ steps.cpr.outputs.pr_number }}
           merge-method: merge
