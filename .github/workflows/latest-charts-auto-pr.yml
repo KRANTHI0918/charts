@@ -1,4 +1,4 @@
-name: Merge Latest-Charts Into Main
+name: Merge Latest-Charts Into Master
 on:
   push:
     branches: ['latest-charts']
@@ -31,12 +31,3 @@ jobs:
           pr_assignee: "KRANTHI0918"
           pr_draft: false
           github_token: ${{ secrets.TOKEN }}
-
-    # https://github.com/marketplace/actions/enable-pull-request-automerge
-      - name: enable automerge
-        if: steps.cpr.outputs.pull-request-operation == 'created'
-        uses: peter-evans/enable-pull-request-automerge@v2
-        with:
-          token: ${{ secrets.TOKEN }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: merge
