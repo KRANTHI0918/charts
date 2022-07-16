@@ -1,4 +1,4 @@
-name: Latest Charts Auto-PR
+name: Merge Latest-Charts Into Main
 on:
   push:
     branches: ['latest-charts']
@@ -11,24 +11,26 @@ on:
 jobs:
   pull-request:
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: Open PR to master
+    name: Create PR Latest-Charts to master
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       name: checkout
 
-    - uses: repo-sync/pull-request@v2
-      name: create pull-request
-      id: open-pr
-      with:
+    # https://github.com/marketplace/actions/github-pull-request-action
+     - name: create pull request
+       id: open-pr
+       uses: repo-sync/pull-request@v2
+       with:
         destination_branch: ${{ github.event.repository.default_branch }}
-        pr_title: "Pulling ${{ github.ref }} into master"
-        pr_body: "[👑 *An automated PR*] Merge ${{ github.ref_name }} into ${{ github.event.repository.default_branch }}"
+        pr_title: "[Automated] Merge ${{ github.ref_name }} into ${{ github.event.repository.default_branch }}"
+        pr_body: ":robot: 👑_Automated Pull Request_ :robot: <br><br>Merging **${{ github.ref_name }}** into **${{ github.event.repository.default_branch }}**. <br><br> :warning: _If there are conflicts, close this PR, resolve the conflicts manually on an intermediate branch, then open a new PR._"
         pr_reviewer: "richiesebastian"
         pr_assignee: "KRANTHI0918"
         pr_draft: false
         github_token: ${{ secrets.TOKEN }}
 
+    # https://github.com/marketplace/actions/enable-pull-request-automerge
     - name: enable automerge
       if: steps.open-pr.outputs.pr_number != ''
       uses: peter-evans/enable-pull-request-automerge@v2
