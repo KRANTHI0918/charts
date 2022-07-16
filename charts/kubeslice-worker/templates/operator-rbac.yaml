@@ -346,6 +346,8 @@ rules:
   - get
   - list
   - patch
+  - get
+  - list
   - update
   - watch
 ---
