@@ -22,11 +22,11 @@ spec:
           - name: NSM_NAMESPACE
             value: {{ .Release.Namespace }}
       tolerations:
-        - key: kubeslice.io/node-type
+        - key: avesha/node-type
           operator: Equal
           value: gateway
           effect: NoSchedule
-        - key: kubeslice.io/node-type
+        - key: avesha/node-type
           operator: Equal
           value: gateway
           effect: NoExecute
