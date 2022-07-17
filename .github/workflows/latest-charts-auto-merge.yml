@@ -1,19 +1,13 @@
-name: Merge latest-charts branch to master
+name: Merge latest-charts againt master
 on:
-  workflow_run1:
-    workflows: ["Raise PR from Latest-Charts against master"]
-    types:
-      - completed
-
-  workflow_run2:
+  workflow_run:
     workflows: ["Opensource Charts Validation"]
     types:
       - completed
 
 jobs:
   automerge:
-    if: ${{ github.event.workflow_run1.conclusion == 'success' }}
-    if: ${{ github.event.workflow_run2.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - id: automerge
