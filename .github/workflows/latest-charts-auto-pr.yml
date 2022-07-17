@@ -1,17 +1,11 @@
-name: Merge Latest-Charts Into Master
+name: Raise PR from Latest-Charts against master
 on:
   push:
     branches: ['latest-charts']
 
-  # workflow_run:
-  #   workflows: ["Opensource Charts Validation"]
-  #   types:
-  #     - completed
-
 jobs:
   pull-request:
-    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: Create PR Latest-Charts to master
+    name: Raise PR against master
     runs-on: ubuntu-latest
     steps:
       - name: git checkout
@@ -20,7 +14,7 @@ jobs:
           token: ${{ secrets.TOKEN }}
 
     # https://github.com/marketplace/actions/github-pull-request-action
-      - name: create pull request
+      - name: raise pull request
         id: automerge
         uses: repo-sync/pull-request@v2
         with:

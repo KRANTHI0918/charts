@@ -1,7 +1,9 @@
 name: Merge latest-charts branch to master
 on:
   workflow_run:
-    workflows: ["Merge Latest-Charts Into Master"]
+    workflows: |
+      ["Merge Latest-Charts Into Master"]
+      ["Opensource Charts Validation"]
     types:
       - completed
 
