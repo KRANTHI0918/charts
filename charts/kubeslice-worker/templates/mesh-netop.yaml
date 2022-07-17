@@ -14,14 +14,14 @@ spec:
         prometheus.io/scrape: "true"
       labels:
         app: app_net_op
-        kubeslice.io/pod-type: netop
+        avesha.io/pod-type: netop
     spec:
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: kubeslice.io/node-type
+              - key: avesha/node-type
                 operator: In
                 values:
                 - gateway
@@ -47,11 +47,11 @@ spec:
         {{- toYaml . | nindent 6 }}
       {{- end }}
       tolerations:
-        - key: "kubeslice.io/node-type"
+        - key: "avesha/node-type"
           operator: "Equal"
           value: "gateway"
           effect: "NoSchedule"
-        - key: "kubeslice.io/node-type"
+        - key: "avesha/node-type"
           operator: "Equal"
           value: "gateway"
           effect: "NoExecute"
