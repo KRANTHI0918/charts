@@ -11,9 +11,9 @@ kubeslice:
     rbacResourcePrefix: kubeslice-rbac
     projectnsPrefix: kubeslice
     endpoint: 
-    image: aveshasystems/kubeslice-controller
-    tag: 0.3.6
+    image: aveshadev/kubeslice-controller
+    tag: 0.5.4
     pullPolicy: IfNotPresent
   ovpnJob:
     image: aveshasystems/gateway-certs-generator
-    tag: 0.1.0
+    tag: 0.1.4
